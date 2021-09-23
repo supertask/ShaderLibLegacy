@@ -1,0 +1,13 @@
+{
+  "author": "Tasuku Takahashi",
+  "description": "Shaders lib",
+  "displayName": "ShadersLib",
+  "keywords": [ "unity" ],
+  "license": "MIT",
+  "name": "jp.supertask.shaderslib",
+  "repository": "github:supertask/ShadersLib",
+  "unity": "2021.2",
+  "unityRelease": "0b11",
+  "version": "1.0.0"
+}
+
