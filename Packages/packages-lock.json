@@ -5,12 +5,6 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
-    },
-    "xjine.packagemanagersample": {
-      "version": "file:PackageManagerSample",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
     }
   }
 }

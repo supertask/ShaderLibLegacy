@@ -6,7 +6,7 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
     {
         _MainTex("Texture", 2D) = "white" {}
 
-        _KuwaharaRadius ("Kuwahara Radius", Range(0, 10)) = 10
+        _Contrast ("Contrast", Range(0, 10)) = 10
         _SobelLineColor ("Sobel Line Color", Color) = (1,1,1,1)
         _SobelDeltaX ("Delta X", Float) = 0.01
 		_SobelDeltaY ("Delta Y", Float) = 0.01
@@ -30,7 +30,7 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/fbm.hlsl"
-
+            #include "Packages/jp.supertask.shadersLib/Shader/Lib/FunctionUtil.hlsl"
 
             /*
 			struct appdata_t
@@ -66,7 +66,7 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
                 return o;
             }
  
-            int _KuwaharaRadius;
+            int _Contrast;
             float4 _MainTex_TexelSize;
  
             float4 frag (v2f i) : SV_Target
@@ -76,55 +76,7 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
                 return tex2Dlod(_ColorfulFractalTex, float4(uv, 0, 0));
 #endif
                 float4 color = tex2D(_MainTex, uv);
-
-                /*
-                float3 mean[4] = {
-                    {0, 0, 0},
-                    {0, 0, 0},
-                    {0, 0, 0},
-                    {0, 0, 0}
-                };
- 
-                float3 sigma[4] = {
-                    {0, 0, 0},
-                    {0, 0, 0},
-                    {0, 0, 0},
-                    {0, 0, 0}
-                };
- 
-                float2 start[4] = {{-_KuwaharaRadius, -_KuwaharaRadius}, {-_KuwaharaRadius, 0}, {0, -_KuwaharaRadius}, {0, 0}};
- 
-                float2 pos;
-                float3 col;
-                for (int k = 0; k < 4; k++) {
-                    for(int i = 0; i <= _KuwaharaRadius; i++) {
-                        for(int j = 0; j <= _KuwaharaRadius; j++) {
-                            pos = float2(i, j) + start[k];
-                            col = tex2Dlod(_MainTex, float4(uv + float2(pos.x * _MainTex_TexelSize.x, pos.y * _MainTex_TexelSize.y), 0., 0.)).rgb;
-                            mean[k] += col;
-                            sigma[k] += col * col;
-                        }
-                    }
-                }
- 
-                float sigma2;
- 
-                float n = pow(_KuwaharaRadius + 1, 2);
-                float4 color = tex2D(_MainTex, uv);
-                float min = 1;
- 
-                for (int l = 0; l < 4; l++) {
-                    mean[l] /= n;
-                    sigma[l] = abs(sigma[l] / n - mean[l] * mean[l]);
-                    sigma2 = sigma[l].r + sigma[l].g + sigma[l].b;
- 
-                    if (sigma2 < min) {
-                        min = sigma2;
-                        color.rgb = mean[l].rgb;
-                    }
-                }
-                */
-                
+                return contrastColor(_Contrast, color);
                 
 
                 float4 lines = _SobelLineColor * sobelFilter(_MainTex, uv, float2(_SobelDeltaX, _SobelDeltaY));
