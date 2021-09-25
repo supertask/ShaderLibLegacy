@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -221,12 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2945fef69ed7eab44b381623210f3ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lod: 7
+  lod: 6
   colors:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0, g: 1, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0.4745098}
+  - {r: 0, g: 0, b: 0, a: 0.31764707}
   tiling: {x: 0.8, y: 5, z: 60, w: 0}
   offsetX: {x: 3, y: 13, z: 29, w: 43}
   offsetY: {x: 7, y: 19, z: 37, w: 53}
@@ -239,15 +239,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363444877}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dbce811cc6354f9ca96331a09a96aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debugColorfulFractal: 0
   shader: {fileID: 4800000, guid: 301a6443cc210472eb0207c54bfa4b76, type: 3}
-  sobelLineColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
-  kuwaharaRadius: 10
+  sobelLineColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.8862745}
+  kuwaharaRadius: 8
   sobelDeltaX: 0.003
   sobelDeltaY: 0.015
 --- !u!114 &363444883
@@ -257,15 +257,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363444877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f6645ce474e24144bbe42712753e5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debugColorfulFractal: 0
   shader: {fileID: 4800000, guid: 2ae41c0b572e14a5193d7f14fac9dc5f, type: 3}
-  sobelLineColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
-  contrast: 10
+  sobelLineColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+  contrast: 4
   sobelDeltaX: 0.003
   sobelDeltaY: 0.015
 --- !u!1 &1594188825

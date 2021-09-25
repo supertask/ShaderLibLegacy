@@ -9,7 +9,7 @@ namespace ImageEffect.Painting {
         public bool debugColorfulFractal = false;
         public Shader shader;
         public Color sobelLineColor = Color.black;
-        [Range(0, 10)] public float contrast = 2f;
+        [Range(0, 30)] public float contrast = 2f;
         public float sobelDeltaX = 0.003f;
         public float sobelDeltaY = 0.015f;
         

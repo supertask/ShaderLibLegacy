@@ -39,10 +39,7 @@ namespace ImageEffect.Painting
 				this.material = new Material(this.shader);
 			}
 
-			if (Time.frameCount % 6 == 0)
-			{
-				this.UpdateMaterial();
-			}
+			this.UpdateMaterial();
         }
 		
 		void UpdateMaterial()

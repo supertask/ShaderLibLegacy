@@ -19,7 +19,8 @@
 		float _DeltaY;
 		
 		float4 frag (v2f_img IN) : COLOR {
-			float s = sobelFilter(_MainTex, IN.uv, float2(_DeltaX, _DeltaY));
+			float s;
+			SobelFilter_float(_MainTex, IN.uv, float2(_DeltaX, _DeltaY), s);
 			return float4(s, s, s, 1);
 		}
 		

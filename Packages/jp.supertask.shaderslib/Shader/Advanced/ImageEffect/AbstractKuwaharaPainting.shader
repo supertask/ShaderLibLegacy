@@ -27,6 +27,7 @@ Shader "Advanced/ImageEffect/AbstractKuwaharaPainting"
             
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/PhotoshopMath.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Basic/ImageEffect/SobelFilter.hlsl"
+            #include "Packages/jp.supertask.shadersLib/Shader/Basic/ImageEffect/KuwaharaFilter.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
             #include "Packages/jp.supertask.shadersLib/Shader/Lib/fbm.hlsl"
@@ -76,6 +77,7 @@ Shader "Advanced/ImageEffect/AbstractKuwaharaPainting"
                 return tex2Dlod(_ColorfulFractalTex, float4(uv, 0, 0));
 #endif
 
+                /*
                 float3 mean[4] = {
                     {0, 0, 0},
                     {0, 0, 0},
@@ -121,7 +123,15 @@ Shader "Advanced/ImageEffect/AbstractKuwaharaPainting"
                         color.rgb = mean[l].rgb;
                     }
                 }
-                float4 lines = _SobelLineColor * sobelFilter(_MainTex, uv, float2(_SobelDeltaX, _SobelDeltaY));
+                */
+                float4 color;
+                KuwaharaFilter_float(_MainTex, _MainTex_TexelSize, uv, _KuwaharaRadius, color);
+
+                //
+                float sobelFilter = 0;
+                SobelFilter_float(_MainTex, uv, float2(_SobelDeltaX, _SobelDeltaY), sobelFilter);
+
+                float4 lines = _SobelLineColor * sobelFilter;
                 lines *= fbm(uv * 10);
                 //lines *= SimplexNoise(uv*0.1);
                 //return ;

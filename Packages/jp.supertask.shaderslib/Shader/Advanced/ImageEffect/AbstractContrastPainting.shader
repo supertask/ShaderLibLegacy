@@ -6,7 +6,7 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
     {
         _MainTex("Texture", 2D) = "white" {}
 
-        _Contrast ("Contrast", Range(0, 10)) = 10
+        _Contrast ("Contrast", Range(0, 30)) = 10
         _SobelLineColor ("Sobel Line Color", Color) = (1,1,1,1)
         _SobelDeltaX ("Delta X", Float) = 0.01
 		_SobelDeltaY ("Delta Y", Float) = 0.01
@@ -76,10 +76,11 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
                 return tex2Dlod(_ColorfulFractalTex, float4(uv, 0, 0));
 #endif
                 float4 color = tex2D(_MainTex, uv);
-                return contrastColor(_Contrast, color);
+                color = contrastColor(_Contrast, color);
                 
-
-                float4 lines = _SobelLineColor * sobelFilter(_MainTex, uv, float2(_SobelDeltaX, _SobelDeltaY));
+                float sobelFilter = 0;
+                SobelFilter_float(_MainTex, uv, float2(_SobelDeltaX, _SobelDeltaY), sobelFilter);
+                float4 lines = _SobelLineColor * sobelFilter;
                 lines *= fbm(uv * 10);
                 //lines *= SimplexNoise(uv*0.1);
                 //return ;
