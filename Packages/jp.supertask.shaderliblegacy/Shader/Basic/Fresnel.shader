@@ -32,7 +32,7 @@
 
 			#include "UnityCG.cginc"
 			#include "UnityLightingCommon.cginc"
-			#include "Packages/jp.supertask.shadersLib/Shader/Lib/SpecularAndDiffuse.hlsl"
+			#include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/SpecularAndDiffuse.hlsl"
 
 			struct appdata_t
 			{

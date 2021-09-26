@@ -13,7 +13,7 @@
 		CGINCLUDE
 		
 		#include "UnityCG.cginc"
-		#include "Packages/jp.supertask.shadersLib/Shader/Lib/ImageEffect/SobelFilter.hlsl"
+		#include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/ImageEffect/SobelFilter.hlsl"
 
 		sampler2D _MainTex;
 		float _DeltaX;

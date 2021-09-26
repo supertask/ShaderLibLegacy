@@ -26,12 +26,12 @@ Shader "Advanced/ImageEffect/AbstractKuwaharaPainting"
 
             #include "UnityCG.cginc"
             
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/fbm.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/PhotoShopMath.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/ImageEffect/SobelFilter.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/ImageEffect/KuwaharaFilter.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/fbm.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/PhotoShopMath.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/ImageEffect/SobelFilter.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/ImageEffect/KuwaharaFilter.hlsl"
 
 			struct appdata_t
 			{

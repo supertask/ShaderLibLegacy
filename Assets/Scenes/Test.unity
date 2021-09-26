@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugColorfulFractal: 0
-  shader: {fileID: 4800000, guid: 301a6443cc210472eb0207c54bfa4b76, type: 3}
+  shader: {fileID: 4800000, guid: 398d82abe848e438aa7ceb2ba61756ea, type: 3}
   sobelLineColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.8862745}
   kuwaharaRadius: 10
   sobelDeltaX: 0.003

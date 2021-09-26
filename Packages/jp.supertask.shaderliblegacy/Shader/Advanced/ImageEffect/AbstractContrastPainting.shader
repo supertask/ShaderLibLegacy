@@ -25,13 +25,13 @@ Shader "Advanced/ImageEffect/AbstractContrastPainting"
 
             #include "UnityCG.cginc"
             
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/fbm.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/PhotoshopMath.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/FunctionUtil.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/fbm.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/PhotoshopMath.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/KeijiroNoise/ClassicNoise2D.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/FunctionUtil.hlsl"
 
-            #include "Packages/jp.supertask.shadersLib/Shader/Lib/ImageEffect/SobelFilter.hlsl"
+            #include "Packages/jp.supertask.shaderliblegacy/Shader/Lib/ImageEffect/SobelFilter.hlsl"
 
             /*
 			struct appdata_t
