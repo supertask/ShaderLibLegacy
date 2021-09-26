@@ -51,8 +51,8 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "jp.supertask.shaderslib": {
-      "version": "file:jp.supertask.shaderslib",
+    "jp.supertask.shaderliblegacy": {
+      "version": "file:jp.supertask.shaderliblegacy",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}

@@ -1,4 +1,4 @@
-﻿Shader "Basic/Fresnel"
+﻿Shader "Basic/RimLighting"
 {
 	Properties
 	{
@@ -8,6 +8,9 @@
 		_FresnelBias ("Fresnel Bias", Float) = 0
 		_FresnelScale ("Fresnel Scale", Float) = 1
 		_FresnelPower ("Fresnel Power", Float) = 1
+
+		_RimLift ("Rim Lift", Float) = 1
+		_RimFresnelPower ("Rim Fresnel Power", Float) = 1
 	}
 
 	SubShader
@@ -32,7 +35,7 @@
 
 			#include "UnityCG.cginc"
 			#include "UnityLightingCommon.cginc"
-			#include "Packages/jp.supertask.shadersLib/Shader/Lib/URP/SpecularAndDiffuse.hlsl"
+			#include "Packages/jp.supertask.shadersLib/Shader/Lib/SpecularAndDiffuse.hlsl"
 
 			struct appdata_t
 			{
@@ -60,6 +63,9 @@
 			fixed _FresnelScale;
 			fixed _FresnelPower;
 			
+			float _RimLift;
+			float _RimFresnelPower;
+
 			v2f vert(appdata_t v)
 			{
 				v2f o;
@@ -69,6 +75,7 @@
 
 				float3 viewDir = normalize(ObjSpaceViewDir(v.pos));
 				o.fresnel = _FresnelBias + _FresnelScale * pow(1 + dot(viewDir, v.normal), _FresnelPower);
+				o.rim = pow(saturate(1.0 - dot(viewDir, v.normal) + _RimLift), _RimFresnelPower);
 
 				SpecularAndDiffuse_float(
 					viewDir, v.normal, posWS, v.color,
@@ -82,7 +89,7 @@
 			{
 				fixed4 col = float4(IN.diffuseReflection + IN.specularReflection, 1)
 					* tex2D(_MainTex, IN.uv) * _Color;
-                return lerp(col, _FresnelColor, (1 - IN.fresnel));
+                return col + IN.rim; // + (1 - IN.fresnel);
 			}
 			ENDCG
 		}

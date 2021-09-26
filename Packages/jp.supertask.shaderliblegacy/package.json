@@ -1,10 +1,10 @@
 {
   "author": "Tasuku Takahashi",
-  "description": "Shaders lib",
-  "displayName": "ShadersLib",
+  "description": "Shader Library for Legacy Render Pipeline ",
+  "displayName": "Shader Library Legacy",
   "keywords": [ "unity" ],
   "license": "MIT",
-  "name": "jp.supertask.shaderslib",
+  "name": "jp.supertask.shaderliblegacy",
   "repository": "github:supertask/ShadersLib",
   "unity": "2021.2",
   "unityRelease": "0b11",

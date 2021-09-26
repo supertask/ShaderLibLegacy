@@ -24,7 +24,7 @@ Shader "Basic/Noise/ColorfulFractal"
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
-			#include "Packages/jp.supertask.shadersLib/Shader/Lib/Builtin/KeijiroNoise/SimplexNoise2D.hlsl"
+			#include "Packages/jp.supertask.shadersLib/Shader/Lib/KeijiroNoise/SimplexNoise2D.hlsl"
 			//#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
 			//#include "Assets/Packages/ShaderLib/Shader/Noise.hlsl"
 			#define NOISE(uv) SimplexNoise(uv)

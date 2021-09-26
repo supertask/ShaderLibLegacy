@@ -1,4 +1,4 @@
-Shaders Lib for Unity
+Shader Library Legacy RP for Unity
 ==============================
 
 
